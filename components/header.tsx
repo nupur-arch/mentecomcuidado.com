@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 import Link from "next/link";
 import { Logo } from "./logo";
 import { useEffect, useRef, useState } from "react";
@@ -66,23 +66,23 @@ export function Header({ articles }: { articles: Article[] }) {
   return (
     <header className={`site-header ${shrunk ? "is-shrunk" : ""}`}>
       <a href="#main" className="skip-link">
-        Skip to content
+        Pular para o conteúdo
       </a>
       <Link
         href="/"
         className="brand-home"
-        aria-label="The Daily Standard, home"
+        aria-label="Mente com Cuidado, início"
       >
         <Logo variant="full" className="header-logo-full" aria-hidden="true" />
         <Logo variant="mark" className="header-logo-mark" aria-hidden="true" />
       </Link>
-      <nav className="desktop-nav" aria-label="Main navigation">
+      <nav className="desktop-nav" aria-label="Navegação principal">
         <Link href="/" className="nav-link">
-          The Edition
+          Início
           <span className="nav-dot" />
         </Link>
         {siteConfig.categories.map((c) => (
-          <Link className="nav-link" key={c.id} href={`/#${c.id}`}>
+          <Link className="nav-link" key={c.id} href={`/secoes/${c.id}`}>
             {c.name}
             <span className="nav-rule" />
           </Link>
@@ -90,14 +90,14 @@ export function Header({ articles }: { articles: Article[] }) {
       </nav>
       <div className="header-tools">
         <span className="edition-mark">
-          INDEPENDENT
+          INFORMAÇÃO
           <br />
-          BY PERSPECTIVE
+          COM CUIDADO
         </span>
         <button
           ref={trigger}
           className="icon-button search-trigger"
-          aria-label="Search articles, Control or Command K"
+          aria-label="Buscar conteúdos, Control ou Command K"
           aria-expanded={open}
           aria-controls="news-search"
           onClick={() => {
@@ -106,14 +106,14 @@ export function Header({ articles }: { articles: Article[] }) {
           }}
         >
           <Search size={18} />
-          <kbd>⌘ K</kbd>
+          <kbd>Ctrl K</kbd>
         </button>
         <button
           className="icon-button"
           aria-label={
             mounted && resolvedTheme === "dark"
-              ? "Switch to light mode"
-              : "Switch to dark mode"
+              ? "Ativar modo claro"
+              : "Ativar modo escuro"
           }
           onClick={() => setTheme(resolvedTheme === "dark" ? "light" : "dark")}
         >
@@ -125,7 +125,7 @@ export function Header({ articles }: { articles: Article[] }) {
         </button>
         <button
           className="icon-button mobile-menu-button"
-          aria-label={menu ? "Close navigation" : "Open navigation"}
+          aria-label={menu ? "Fechar navegação" : "Abrir navegação"}
           aria-expanded={menu}
           aria-controls="mobile-navigation"
           onClick={() => {
@@ -146,7 +146,7 @@ export function Header({ articles }: { articles: Article[] }) {
           animate={{ opacity: 1, y: 0 }}
         >
           <label className="eyebrow" htmlFor="search-input">
-            Find a different perspective
+            Encontre uma orientação
           </label>
           <div className="search-input-wrap">
             <Search size={20} />
@@ -155,12 +155,12 @@ export function Header({ articles }: { articles: Article[] }) {
               ref={input}
               value={query}
               onChange={(e) => setQuery(e.target.value)}
-              placeholder="Search stories, topics, people…"
+              placeholder="Busque temas, guias e assuntos…"
               autoComplete="off"
             />
             <button
               className="icon-button"
-              aria-label="Close search"
+              aria-label="Fechar busca"
               onClick={() => {
                 setOpen(false);
                 trigger.current?.focus();
@@ -171,14 +171,14 @@ export function Header({ articles }: { articles: Article[] }) {
           </div>
           <p className="eyebrow" aria-live="polite">
             {query
-              ? `${results.length} suggestions`
-              : "From the latest edition"}
+              ? `${results.length} sugestões`
+              : "Conteúdos recentes"}
           </p>
           <ul>
             {results.map((a) => (
               <li key={a.id}>
                 <Link
-                  href={`/articles/${a.slug}`}
+                  href={`/artigos/${a.slug}`}
                   onClick={() => setOpen(false)}
                 >
                   <span>
@@ -192,7 +192,7 @@ export function Header({ articles }: { articles: Article[] }) {
           </ul>
           {!results.length && (
             <p className="search-empty">
-              No stories found. Try a category or a different word.
+              Nenhum conteúdo encontrado. Tente outra palavra ou seção.
             </p>
           )}
         </motion.div>
@@ -201,11 +201,11 @@ export function Header({ articles }: { articles: Article[] }) {
         <nav
           id="mobile-navigation"
           className="mobile-navigation"
-          aria-label="Mobile navigation"
+          aria-label="Navegação móvel"
           data-lenis-prevent
         >
           {siteConfig.categories.map((c) => (
-            <Link key={c.id} href={`/#${c.id}`} onClick={() => setMenu(false)}>
+            <Link key={c.id} href={`/secoes/${c.id}`} onClick={() => setMenu(false)}>
               <span className="eyebrow">{c.number}</span>
               {c.name}
               <ArrowUpRight size={20} />
@@ -216,3 +216,6 @@ export function Header({ articles }: { articles: Article[] }) {
     </header>
   );
 }
+
+
+

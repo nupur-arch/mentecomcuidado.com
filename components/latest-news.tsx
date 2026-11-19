@@ -1,4 +1,4 @@
-import Link from "next/link";
+﻿import Link from "next/link";
 import { ArrowUpRight } from "lucide-react";
 import type { Article } from "@/lib/types";
 import { formatDate } from "@/lib/format";
@@ -20,8 +20,8 @@ export function LatestNews({ articles }: { articles: Article[] }) {
       <SectionHeading
         number="01"
         label="The latest"
-        title="The world moves. Stay curious."
-        note="Fresh perspectives, beyond the headline."
+        title="A mente muda. Informação ajuda."
+        note="Conteúdo claro, além dos rótulos."
       />
       {!selected.length ? (
         <p className="section-empty">
@@ -36,7 +36,7 @@ export function LatestNews({ articles }: { articles: Article[] }) {
               className={index === 0 ? "latest-lead" : "latest-small"}
             >
               <article className="desk-story">
-                <Link href={`/articles/${article.slug}`} className="story-link">
+                <Link href={`/artigos/${article.slug}`} className="story-link">
                   <StoryImage
                     src={article.image}
                     alt={article.imageAlt}
@@ -70,3 +70,5 @@ export function LatestNews({ articles }: { articles: Article[] }) {
     </section>
   );
 }
+
+

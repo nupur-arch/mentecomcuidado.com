@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 import { ThemeProvider } from "next-themes";
 import { ReactLenis } from "lenis/react";
 import { useEffect, useState } from "react";
@@ -28,3 +28,4 @@ export function Providers({ children }: { children: React.ReactNode }) {
     </ThemeProvider>
   );
 }
+

@@ -1,0 +1,4 @@
+﻿import type { MetadataRoute } from "next";
+import { siteConfig } from "@/content/site.config";
+import { mockArticles } from "@/mocks/articles";
+export default function sitemap():MetadataRoute.Sitemap{const base=process.env.NEXT_PUBLIC_SITE_URL??"https://mentecomcuidado.com";const fixed=["","/busca","/sobre","/privacidade"].map((path)=>({url:`${base}${path}`,lastModified:new Date("2026-11-19"),changeFrequency:path===""?"daily" as const:"monthly" as const,priority:path===""?1:.6}));const sections=siteConfig.categories.map((category)=>({url:`${base}/secoes/${category.id}`,lastModified:new Date("2026-11-19"),changeFrequency:"weekly" as const,priority:.8}));const articles=mockArticles.map((article)=>({url:`${base}/artigos/${article.slug}`,lastModified:new Date(article.publishedAt),changeFrequency:"monthly" as const,priority:.7}));return [...fixed,...sections,...articles];}

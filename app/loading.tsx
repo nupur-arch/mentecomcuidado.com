@@ -1,4 +1,4 @@
-export default function Loading() {
+﻿export default function Loading() {
   return (
     <main
       className="loading-state"
@@ -6,10 +6,12 @@ export default function Loading() {
       aria-label="Loading the morning edition"
     >
       <span className="wordmark">
-        The Daily Standard<span>®</span>
+        Mente com Cuidado<span>Â®</span>
       </span>
       <div className="skeleton" />
-      <p className="eyebrow">Preparing your edition…</p>
+      <p className="eyebrow">Preparando seu conteúdo…</p>
     </main>
   );
 }
+
+

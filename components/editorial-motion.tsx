@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 import { motion, useInView, useScroll, useTransform } from "framer-motion";
 import { useRef } from "react";
 import { useMotionPreference } from "./motion-preference";
@@ -119,3 +119,4 @@ export function StoryImage({
     </div>
   );
 }
+

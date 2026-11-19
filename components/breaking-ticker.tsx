@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 import Link from "next/link";
 import { Pause, Play, ArrowUpRight } from "lucide-react";
 import { useState } from "react";
@@ -10,7 +10,7 @@ export function BreakingTicker({ articles }: { articles: Article[] }) {
   return (
     <aside
       className={`breaking-ticker ${paused ? "ticker-paused" : ""}`}
-      aria-label="Breaking news"
+      aria-label="Dica do dia"
     >
       <span className="ticker-label">
         <span />
@@ -26,7 +26,7 @@ export function BreakingTicker({ articles }: { articles: Article[] }) {
               inert={copy === 1}
             >
               {stories.map((article) => (
-                <Link href={`/articles/${article.slug}`} key={article.id}>
+                <Link href={`/artigos/${article.slug}`} key={article.id}>
                   <span className="eyebrow">{article.category.name}</span>
                   {article.title.replace(/\n/g, " ")}
                   <ArrowUpRight size={13} />
@@ -40,7 +40,7 @@ export function BreakingTicker({ articles }: { articles: Article[] }) {
       <button
         type="button"
         aria-label={
-          paused ? "Resume breaking news ticker" : "Pause breaking news ticker"
+          paused ? "Resume breaking news ticker" : "Pausar dicas ticker"
         }
         aria-pressed={paused}
         onClick={() => setPaused((value) => !value)}
@@ -50,3 +50,6 @@ export function BreakingTicker({ articles }: { articles: Article[] }) {
     </aside>
   );
 }
+
+
+

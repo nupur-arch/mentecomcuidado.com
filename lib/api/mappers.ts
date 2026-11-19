@@ -1,4 +1,4 @@
-import type { Article, Banner } from "@/lib/types";
+﻿import type { Article, Banner } from "@/lib/types";
 import { siteConfig } from "@/content/site.config";
 type ApiArticle = {
   id: string | number;
@@ -15,6 +15,8 @@ type ApiArticle = {
   trending_percent?: number;
   featured?: boolean;
   editors_pick?: boolean;
+  subtopic?: string;
+  reading_minutes?: number;
 };
 export function mapApiArticle(raw: ApiArticle): Article {
   const category = siteConfig.categories.find(
@@ -40,9 +42,11 @@ export function mapApiArticle(raw: ApiArticle): Article {
     body: raw.body ?? "",
     image,
     imageAlt: raw.image_alt ?? raw.title,
-    author: raw.author ?? "Standard Editorial",
-    location: raw.location ?? "Global",
+    author: raw.author ?? "Equipe editorial",
+    location: raw.location ?? "Brasil",
     publishedAt: raw.published_at,
+    subtopic: raw.subtopic ?? category.topics[0],
+    readingMinutes: typeof raw.reading_minutes === "number" && Number.isFinite(raw.reading_minutes) ? Math.max(1, Math.round(raw.reading_minutes)) : 3,
     trending:
       typeof raw.trending_percent === "number" &&
       Number.isFinite(raw.trending_percent)
@@ -58,3 +62,4 @@ export const mapApiBanner = (raw: Banner): Banner => ({
   text: raw.text,
   href: /^(\/(?!\/)|#|https:\/\/)/.test(raw.href) ? raw.href : "/",
 });
+

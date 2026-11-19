@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 import { useEffect, useState, type SVGProps } from "react";
 import { siteConfig } from "@/content/site.config";
 import { logoMarkPath, logoFoldPath } from "@/lib/brand";
@@ -71,9 +71,7 @@ export function Logo({
             fontWeight="500"
             letterSpacing={stacked ? -1.35 : -0.95}
             textAnchor={stacked ? "middle" : "start"}
-          >
-            the daily
-          </text>
+          >mente com</text>
           <text
             x={stacked ? 122 : 62}
             y={stacked ? 134 : 56}
@@ -81,11 +79,12 @@ export function Logo({
             fontWeight="750"
             letterSpacing={stacked ? -2 : -1.6}
             textAnchor={stacked ? "middle" : "start"}
-          >
-            standard<tspan className="logo-period">.</tspan>
+          >cuidado<tspan className="logo-period">.</tspan>
           </text>
         </g>
       )}
     </svg>
   );
 }
+
+

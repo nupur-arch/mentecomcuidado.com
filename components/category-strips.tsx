@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 import Link from "next/link";
 import { ArrowLeft, ArrowRight, ArrowUpRight } from "lucide-react";
 import { useRef, useState } from "react";
@@ -48,7 +48,7 @@ function CategoryStrip({
         />
         <div className="strip-controls">
           <span className="eyebrow">
-            {String(articles.length).padStart(2, "0")} STORIES / DRAG TO EXPLORE
+            {String(articles.length).padStart(2, "0")} CONTEÚDOS / ARRASTE PARA EXPLORAR
           </span>
           <button
             type="button"
@@ -129,7 +129,7 @@ function CategoryStrip({
           {articles.map((article, storyIndex) => (
             <article className="strip-story" key={article.id}>
               <Link
-                href={`/articles/${article.slug}`}
+                href={`/artigos/${article.slug}`}
                 className="story-link"
                 draggable={false}
               >
@@ -160,7 +160,7 @@ function CategoryStrip({
         </div>
       ) : (
         <p className="section-empty">
-          Stories from this desk are on their way.
+          Novos conteúdos desta seção estão a caminho.
         </p>
       )}
     </section>
@@ -186,3 +186,5 @@ export function CategoryStrips({
     </div>
   );
 }
+
+

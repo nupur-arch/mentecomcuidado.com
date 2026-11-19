@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 import { SectionHeading } from "./editorial-motion";
 
 import { animate, useInView } from "framer-motion";
@@ -59,17 +59,17 @@ export function NumbersBand({
       <div className="numbers-intro">
         <SectionHeading
           number={String(categories.length + 3).padStart(2, "0")}
-          label="This edition, in perspective"
-          title="Many points of view. One shared world."
+          label="Saúde mental, em perspectiva"
+          title="Muitos caminhos. Um cuidado possível."
         />
         {banners.slice(0, 1).map((b) => (
           <a key={b.id} href={b.href} className="eyebrow">
-            {b.text} ↗
+            {b.text} 
           </a>
         ))}
       </div>
       <div className="edition-stats">
-        <Count value={articles.length} label="Stories to explore" />
+        <Count value={articles.length} label="Conteúdos para explorar" />
         <Count value={populated.length} label="Editorial desks" />
         <Count
           value={new Set(articles.map((a) => a.author)).size}
@@ -83,3 +83,6 @@ export function NumbersBand({
     </section>
   );
 }
+
+
+

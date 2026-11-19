@@ -1,157 +1,30 @@
+﻿import type { Article, Banner } from "@/lib/types";
 import { siteConfig } from "@/content/site.config";
-import type { Article, Banner } from "@/lib/types";
-const stories = [
-  [
-    "The city belongs\nto everyone.",
-    "How a new generation of urban thinkers is making room for a slower, more human way of living.",
-    "Copenhagen",
-    "Elena Morris",
-  ],
-  [
-    "A quieter kind of revolution",
-    "Across Europe, neighbourhoods are trading traffic for trees and discovering what comes next.",
-    "Amsterdam",
-    "Noah Bennett",
-  ],
-  [
-    "Where the river meets tomorrow",
-    "The communities rewriting their relationship with the water at their doorstep.",
-    "Dhaka",
-    "Amina Rahman",
-  ],
-  [
-    "The long way home",
-    "Inside the growing movement to bring night trains back to the heart of European travel.",
-    "Vienna",
-    "James Ellis",
-  ],
-  [
-    "A seat at a different table",
-    "Meet the people turning everyday conversations into meaningful local change.",
-    "Lisbon",
-    "Elena Morris",
-  ],
-  [
-    "The art of\npaying attention.",
-    "In a world that never stops scrolling, a new wave of artists is asking us to look a little longer.",
-    "London",
-    "Maya Chen",
-  ],
-  [
-    "An old craft, a new language",
-    "The young makers finding fresh possibilities in the traditions they inherited.",
-    "Kyoto",
-    "Maya Chen",
-  ],
-  [
-    "What we hear in the silence",
-    "Independent listening spaces are changing how a city comes together after dark.",
-    "Berlin",
-    "Noah Bennett",
-  ],
-  [
-    "Stories written on the walls",
-    "A walk through the studios giving a once-forgotten district a new creative identity.",
-    "Mexico City",
-    "Sofia Reyes",
-  ],
-  [
-    "The bookshop around the corner",
-    "Why small independent bookshops are becoming the gathering places we need.",
-    "Edinburgh",
-    "James Ellis",
-  ],
-  [
-    "A different\nkind of energy.",
-    "The researchers looking to nature for answers to our biggest energy questions.",
-    "Reykjavik",
-    "Amina Rahman",
-  ],
-  [
-    "Learning to listen to the ocean",
-    "A new generation of sensors is revealing the hidden rhythms beneath the surface.",
-    "Bergen",
-    "Elena Morris",
-  ],
-  [
-    "The forest beneath our feet",
-    "The extraordinary underground networks connecting the natural world.",
-    "Vancouver",
-    "Maya Chen",
-  ],
-  [
-    "Small ideas, lasting impact",
-    "Inside the laboratories working on materials designed for a circular future.",
-    "Zurich",
-    "Noah Bennett",
-  ],
-  [
-    "Looking up, looking forward",
-    "How community observatories are opening the night sky to everyone.",
-    "Atacama",
-    "Sofia Reyes",
-  ],
-  [
-    "More than\na beautiful game.",
-    "On pitches around the world, the next generation is finding belonging, possibility, and a voice.",
-    "Barcelona",
-    "James Ellis",
-  ],
-  [
-    "The runners rewriting the route",
-    "Meet the running clubs that put community ahead of the finishing time.",
-    "Nairobi",
-    "Amina Rahman",
-  ],
-  [
-    "A new wave takes the lead",
-    "The local surfers building a more inclusive future for their sport.",
-    "Ericeira",
-    "Sofia Reyes",
-  ],
-  [
-    "Beyond the final whistle",
-    "What happens when a neighbourhood club becomes the heart of a community.",
-    "Manchester",
-    "Noah Bennett",
-  ],
-  [
-    "The courage to begin again",
-    "Athletes reflect on the small, unseen moments that make a comeback possible.",
-    "Paris",
-    "Elena Morris",
-  ],
+type GuideSpec={section:string;subtopic:string;slug:string;title:string;summary:string;intro:string;heading:string;points:string[];closing:string};
+const specs:GuideSpec[]=[
+{section:"informacao",subtopic:"conceitos",slug:"saude-mental-no-cotidiano",title:"Saúde mental no cotidiano: um ponto de partida",summary:"Um guia para entender saúde mental como parte da vida, sem reduzir experiências a rótulos.",intro:"Saúde mental envolve a maneira como percebemos emoções, enfrentamos dificuldades, mantemos vínculos e participamos da vida diária. Ela não é um estado fixo nem significa estar bem o tempo todo. Mudanças fazem parte da experiência humana e podem ser influenciadas por condições de vida, relações, saúde física e acesso a apoio.",heading:"Como olhar para o tema",points:["Observe duração, intensidade e impacto das mudanças, em vez de analisar um sentimento isolado.","Considere o contexto: sono, segurança, renda, discriminação, luto e sobrecarga podem afetar o bem-estar.","Evite usar diagnósticos como adjetivos. Termos clínicos têm significados específicos e exigem avaliação profissional."],closing:"Informação pode organizar dúvidas, mas não substitui uma conversa individual com profissional qualificado. Se algo persiste ou interfere na rotina, buscar orientação é uma possibilidade de cuidado."},
+{section:"informacao",subtopic:"conceitos",slug:"emocao-sintoma-e-diagnostico",title:"Emoção, sintoma e diagnóstico não são a mesma coisa",summary:"Diferenças importantes para falar sobre sofrimento emocional com mais clareza.",intro:"Tristeza, medo, irritação e cansaço são experiências possíveis em diferentes momentos. Um sintoma é uma manifestação percebida pela pessoa ou observada em sua rotina. Já um diagnóstico é uma conclusão clínica construída a partir de critérios, contexto, duração e avaliação cuidadosa.",heading:"Por que essa diferença importa",points:["Uma emoção desconfortável não indica, por si só, um transtorno.","Listas na internet podem ajudar a formular perguntas, mas não confirmam diagnósticos.","O mesmo sinal pode ter causas diferentes, inclusive condições físicas, uso de medicamentos ou situações sociais."],closing:"Usar palavras mais precisas reduz estigma e evita conclusões apressadas. Ao conversar com um profissional, descreva o que mudou, há quanto tempo e como isso afeta atividades importantes."},
+{section:"informacao",subtopic:"evidências",slug:"como-ler-informacao-de-saude",title:"Como reconhecer informação confiável sobre saúde mental",summary:"Critérios simples para avaliar promessas, fontes e limites de um conteúdo.",intro:"Conteúdos de saúde podem parecer convincentes mesmo quando não apresentam fontes ou transformam resultados preliminares em certezas. Ler de forma crítica não exige formação científica: algumas perguntas básicas já ajudam a perceber a qualidade da informação.",heading:"Perguntas úteis",points:["A autoria e a data estão visíveis? O texto indica quais fontes sustentam as afirmações?","O conteúdo explica limites e evita prometer cura, resultado rápido ou solução universal?","A orientação diferencia informação geral de avaliação individual e indica quando procurar ajuda?"],closing:"Dê preferência a órgãos públicos, instituições de pesquisa e entidades profissionais reconhecidas. Uma fonte responsável admite incertezas e atualiza recomendações quando o conhecimento muda."},
+{section:"informacao",subtopic:"evidências",slug:"o-que-significa-baseado-em-evidencias",title:"O que significa cuidado baseado em evidências",summary:"Entenda por que pesquisa, experiência profissional e preferências da pessoa precisam conversar.",intro:"Cuidado baseado em evidências não significa seguir um estudo de forma automática. A prática responsável combina resultados de pesquisas de qualidade, experiência clínica, condições disponíveis e valores da pessoa atendida.",heading:"Uma decisão compartilhada",points:["Evidências podem indicar benefícios e riscos médios, mas não preveem com certeza o resultado individual.","Preferências, cultura, rotina, acessibilidade e custos fazem parte da decisão.","O acompanhamento permite revisar escolhas quando objetivos, efeitos ou circunstâncias mudam."],closing:"Perguntar sobre alternativas, benefícios esperados, possíveis riscos e formas de acompanhar resultados ajuda a construir decisões mais informadas. Não interrompa cuidados prescritos sem conversar com o profissional responsável."},
+{section:"atendimento",subtopic:"profissionais",slug:"quem-faz-o-que-na-saude-mental",title:"Psicologia, psiquiatria e outros cuidados: quem faz o quê",summary:"Uma visão simples das atuações profissionais, sem hierarquia entre formas de cuidado.",intro:"O cuidado em saúde mental pode envolver diferentes profissionais. A escolha depende das necessidades, da disponibilidade e do plano construído com a pessoa. Em alguns casos, equipes trabalham de forma integrada.",heading:"Papéis que podem se complementar",points:["Profissionais de psicologia realizam avaliação psicológica e intervenções próprias da área.","Profissionais de psiquiatria são médicos e podem avaliar condições clínicas e prescrever medicamentos.","Atenção básica, enfermagem, terapia ocupacional, serviço social e outras áreas também podem participar do cuidado."],closing:"Verifique registro profissional e formação. Se não souber por onde começar, uma Unidade Básica de Saúde pode orientar sobre a rede disponível no território."},
+{section:"atendimento",subtopic:"profissionais",slug:"como-se-preparar-para-primeira-conversa",title:"Como se preparar para a primeira conversa profissional",summary:"Anotações e perguntas que podem deixar o encontro mais claro e útil.",intro:"É comum chegar a um atendimento sem saber por onde começar. Não é necessário organizar tudo antes da conversa, mas algumas anotações podem ajudar a apresentar o que está acontecendo e lembrar dúvidas importantes.",heading:"O que pode ser anotado",points:["Mudanças percebidas, quando começaram e como afetam sono, trabalho, estudo ou relações.","Medicamentos em uso, condições de saúde e atendimentos anteriores relevantes.","Perguntas sobre abordagem, frequência, confidencialidade, custos e próximos passos."],closing:"Você pode pedir explicações em linguagem simples e dizer quando não se sente confortável. A relação de cuidado deve permitir perguntas, participação e respeito aos seus limites."},
+{section:"atendimento",subtopic:"serviços",slug:"caminhos-no-sus-para-saude-mental",title:"Caminhos para buscar cuidado em saúde mental no SUS",summary:"Onde começar e como os serviços públicos podem se articular no território.",intro:"A rede pública oferece diferentes portas de entrada. A Unidade Básica de Saúde costuma ser um ponto inicial para acolhimento, avaliação das necessidades e encaminhamento quando indicado.",heading:"Serviços e situações",points:["UBS e equipes de Saúde da Família acompanham necessidades comuns e coordenam o cuidado.","CAPS atendem situações de sofrimento intenso e necessidades relacionadas ao uso de álcool e outras drogas, conforme a modalidade local.","Urgências devem ser levadas a serviços de emergência; em risco imediato, ligue 192."],closing:"A organização varia entre municípios. Procure a secretaria de saúde local para endereços e fluxos atualizados. Para apoio emocional, o CVV atende pelo 188, 24 horas."},
+{section:"atendimento",subtopic:"serviços",slug:"teleatendimento-com-seguranca",title:"Teleatendimento: cuidados antes da consulta",summary:"Privacidade, identificação profissional e condições práticas para um encontro remoto.",intro:"O atendimento remoto pode ampliar acesso, mas precisa seguir regras profissionais e oferecer condições mínimas de privacidade. Antes da consulta, confirme informações essenciais e prepare o ambiente possível.",heading:"Uma verificação breve",points:["Confirme nome, registro profissional, canal de contato e plataforma utilizada.","Pergunte como dados e anotações são protegidos e o que fazer se a conexão cair.","Escolha um local com privacidade e use fones quando isso ajudar; se não houver ambiente seguro, avise o profissional."],closing:"Desconfie de promessas garantidas, pressão para comprar pacotes ou ausência de identificação profissional. Em emergência, procure atendimento presencial adequado à sua região."},
+{section:"rotinas",subtopic:"estresse",slug:"entender-resposta-de-estresse",title:"Estresse: o que acontece quando o corpo fica em alerta",summary:"Uma explicação sem alarmismo sobre resposta de estresse e sinais de sobrecarga.",intro:"A resposta de estresse ajuda o organismo a reagir a demandas. Ela pode aumentar atenção, tensão muscular e ritmo cardíaco. O problema não é sentir estresse em qualquer situação, mas permanecer sobrecarregado sem recuperação suficiente.",heading:"Sinais para observar",points:["Irritabilidade, dificuldade de concentração e alterações no sono podem acompanhar períodos exigentes.","Demandas contínuas, pouco controle e falta de apoio tendem a dificultar a recuperação.","Pausas ajudam, mas não substituem mudanças necessárias em condições inseguras ou excessivas."],closing:"Observe padrões e identifique o que pode ser ajustado individual ou coletivamente. Sintomas intensos, persistentes ou físicos precisam ser avaliados por profissional de saúde."},
+{section:"rotinas",subtopic:"estresse",slug:"pausas-que-cabem-no-dia",title:"Pausas que cabem no dia sem virar mais uma cobrança",summary:"Formas pequenas de interromper a sobrecarga e recuperar atenção.",intro:"Uma pausa não precisa ser longa nem perfeita. O objetivo é interromper por alguns minutos a sequência de demandas e permitir mudança de postura, foco ou ritmo.",heading:"Experimentos possíveis",points:["Afaste os olhos da tela, solte ombros e mandíbula e perceba a respiração sem tentar controlá-la.","Alterne tarefas de alta concentração com atividades mais simples quando houver autonomia.","Combine pausas com sinais do cotidiano, como terminar uma reunião ou beber água."],closing:"Se a rotina não permite necessidades básicas, o problema não se resolve apenas com técnica individual. Conversas sobre carga, prazos e apoio também fazem parte da prevenção."},
+{section:"rotinas",subtopic:"descanso",slug:"descanso-alem-do-sono",title:"Descanso é mais do que dormir",summary:"Diferentes formas de reduzir demanda e recuperar energia ao longo da semana.",intro:"Sono é fundamental, mas descanso também pode envolver diminuir estímulos, variar atividades e ter períodos sem exigência de desempenho. O que recupera uma pessoa pode não funcionar da mesma forma para outra.",heading:"Construindo recuperação",points:["Perceba quais atividades reduzem ou aumentam sua carga mental.","Reserve transições curtas entre trabalho e vida pessoal quando possível.","Não transforme lazer em obrigação produtiva; atividades simples também podem oferecer recuperação."],closing:"Descansar não corrige sozinho jornadas excessivas, insegurança ou adoecimento. Considere o contexto e procure apoio se o cansaço persistir mesmo com oportunidades de recuperação."},
+{section:"rotinas",subtopic:"descanso",slug:"rotina-de-sono-possivel",title:"Uma rotina de sono possível, não perfeita",summary:"Princípios simples para dar ao corpo sinais mais consistentes de repouso.",intro:"O sono varia ao longo da vida e pode ser afetado por trabalho, cuidado de outras pessoas, ambiente e saúde. Recomendações precisam caber na realidade, sem culpa quando nem tudo pode ser controlado.",heading:"Sinais que ajudam",points:["Tente manter horários aproximados, especialmente para acordar, sem buscar rigidez absoluta.","Reduza luz intensa e atividades estimulantes perto do horário de dormir quando for viável.","Observe cafeína, álcool e cochilos, pois seus efeitos podem variar entre pessoas."],closing:"Dificuldades frequentes, ronco intenso, pausas respiratórias ou sonolência que compromete segurança merecem avaliação profissional. Evite usar medicamentos por conta própria."},
+{section:"convivencia",subtopic:"apoio",slug:"como-oferecer-apoio-sem-invadir",title:"Como oferecer apoio sem invadir",summary:"Escuta, respeito e ajuda prática para estar ao lado de alguém em sofrimento.",intro:"A vontade de resolver rapidamente pode levar a conselhos não pedidos ou minimizar o que a pessoa sente. Apoiar começa por reconhecer a experiência e perguntar do que ela precisa naquele momento.",heading:"Atitudes de presença",points:["Escute sem interrogar e evite comparar com histórias de outras pessoas.","Pergunte se a pessoa quer companhia, ajuda prática ou apoio para buscar um serviço.","Respeite limites e mantenha contato possível, sem prometer disponibilidade que não consegue oferecer."],closing:"Apoio de pessoas próximas é valioso, mas não substitui cuidado profissional quando necessário. Em risco imediato, acione serviços de emergência e não deixe a pessoa sozinha."},
+{section:"convivencia",subtopic:"apoio",slug:"rede-de-apoio-na-pratica",title:"Rede de apoio na prática: pessoas, lugares e serviços",summary:"Um mapa simples para reconhecer recursos antes de uma situação difícil.",intro:"Rede de apoio não se limita a amizades íntimas. Ela pode incluir familiares, vizinhos, colegas, grupos comunitários, escola, serviços de saúde e assistência social.",heading:"Montando um mapa possível",points:["Liste quem pode oferecer escuta, ajuda prática ou companhia em uma consulta.","Registre contatos de serviços locais e horários de funcionamento.","Combine previamente como pedir ajuda e quais limites cada pessoa possui."],closing:"Uma rede pode ser pequena e mudar com o tempo. O objetivo não é concentrar tudo em uma pessoa, mas conhecer recursos diferentes e tornar o pedido de ajuda mais simples."},
+{section:"convivencia",subtopic:"comunicação",slug:"conversas-dificeis-com-mais-clareza",title:"Conversas difíceis com mais clareza",summary:"Como falar de impacto, necessidade e limite sem transformar a conversa em disputa.",intro:"Conflitos fazem parte das relações. Uma conversa tende a ser mais clara quando descreve situações concretas, seus efeitos e o que precisa mudar, evitando rótulos sobre o caráter da outra pessoa.",heading:"Uma estrutura útil",points:["Escolha um momento com alguma disponibilidade, em vez de iniciar no auge da tensão.","Descreva o fato e seu impacto usando exemplos específicos.","Faça um pedido possível e escute a resposta; pedido não é garantia de concordância."],closing:"Se houver medo, ameaça, controle ou violência, priorize segurança e procure serviços especializados. Nem todo conflito deve ser resolvido em uma conversa direta."},
+{section:"convivencia",subtopic:"comunicação",slug:"limites-sem-culpa",title:"Limites não são castigo: como comunicar o que é possível",summary:"Um guia para dizer sim, não ou ainda não de forma respeitosa.",intro:"Limites indicam o que uma pessoa consegue oferecer e quais condições precisa para permanecer em uma relação. Eles não servem para controlar o comportamento alheio, mas para orientar as próprias escolhas.",heading:"Comunicação direta",points:["Use frases curtas e específicas, sem acumular justificativas quando elas não são necessárias.","Diferencie preferência, pedido e limite; cada um exige uma conversa diferente.","Mantenha coerência entre o limite comunicado e a ação que depende de você."],closing:"Sentir desconforto ao estabelecer limites não significa que eles sejam errados. Em relações abusivas ou inseguras, procure apoio e planeje a segurança antes de confrontar."},
+{section:"trabalho",subtopic:"prevenção",slug:"prevenir-sobrecarga-no-trabalho",title:"Prevenir sobrecarga exige olhar para o trabalho",summary:"Por que organização, recursos e participação importam mais do que cobrar resistência individual.",intro:"Bem-estar no trabalho não depende apenas de hábitos pessoais. Carga, autonomia, clareza de função, segurança, reconhecimento e relações influenciam a saúde de quem trabalha.",heading:"Prevenção compartilhada",points:["Acompanhe volume, prazos e horas extras com dados reais, não apenas percepções isoladas.","Crie canais seguros para relatar problemas sem retaliação.","Inclua trabalhadores na definição de prioridades e mudanças de processo."],closing:"Ações individuais podem apoiar recuperação, mas não compensam riscos organizacionais contínuos. Prevenção efetiva atua sobre causas e acompanha se as mudanças realmente reduzem a sobrecarga."},
+{section:"trabalho",subtopic:"prevenção",slug:"sinais-de-sobrecarga-na-equipe",title:"Sinais de sobrecarga na equipe sem vigiar indivíduos",summary:"Indicadores coletivos que ajudam a rever processos com respeito à privacidade.",intro:"Queda de qualidade, retrabalho, horas extras frequentes, conflitos e afastamentos podem indicar problemas na organização. Esses sinais devem orientar revisão do trabalho, não investigação da vida pessoal de cada profissional.",heading:"Como responder",points:["Converse sobre tarefas, recursos e obstáculos concretos, preservando informações de saúde.","Revise prioridades e elimine demandas que não cabem na capacidade disponível.","Avalie resultados das mudanças e mantenha canais de participação."],closing:"Gestores não devem diagnosticar. Quando alguém compartilha uma necessidade de saúde, acolha, informe caminhos institucionais e preserve confidencialidade conforme as regras aplicáveis."},
+{section:"trabalho",subtopic:"ambiente",slug:"seguranca-psicologica-no-trabalho",title:"Segurança psicológica não é concordar com tudo",summary:"Um ambiente onde dúvidas e erros podem ser discutidos sem humilhação.",intro:"Segurança psicológica descreve condições para falar, perguntar e apontar riscos sem medo de punição indevida. Ela não elimina responsabilidade, conflito ou avaliação de desempenho.",heading:"Práticas observáveis",points:["Lideranças admitem dúvidas e respondem a alertas sem ridicularizar quem os apresenta.","Erros são analisados para melhorar processos, com responsabilização proporcional e justa.","Discordâncias podem ser expressas com critérios claros e respeito."],closing:"Pesquisas internas só ajudam quando há retorno e mudança visível. Coletar relatos sem proteger participantes ou agir sobre problemas pode aumentar desconfiança."},
+{section:"trabalho",subtopic:"ambiente",slug:"comunicacao-e-prioridades-no-trabalho",title:"Comunicação de prioridades reduz desgaste desnecessário",summary:"Acordos simples para diminuir urgências artificiais e retrabalho.",intro:"Quando tudo parece urgente, as pessoas perdem referência para decidir. Prioridades claras ajudam a distribuir energia, negociar prazos e reconhecer o que precisa ser interrompido.",heading:"Acordos de equipe",points:["Defina quem decide prioridades e como mudanças serão comunicadas.","Ao incluir uma tarefa urgente, explicite qual atividade será adiada ou retirada.","Registre decisões essenciais em canal acessível, reduzindo dependência de mensagens dispersas."],closing:"Clareza não resolve falta crônica de recursos, mas torna o problema mais visível. Se a capacidade permanece abaixo da demanda, é necessário rever escopo, prazo ou estrutura."},
 ];
-export const mockArticles: Article[] = stories.map(
-  ([title, summary, location, author], index) => {
-    const category = siteConfig.categories[Math.floor(index / 5)];
-    const cleanTitle = title.replace(/\n/g, " ");
-    return {
-      id: String(index + 1),
-      slug: cleanTitle
-        .toLowerCase()
-        .replace(/[^a-z0-9 ]/g, "")
-        .replace(/ +/g, "-"),
-      title,
-      summary,
-      location,
-      author,
-      category,
-      image: `/images/${category.id}.jpg`,
-      imageAlt: `${category.name} editorial photograph accompanying ${cleanTitle}`,
-      publishedAt: `2026-11-${String(17 - (index % 5)).padStart(2, "0")}T08:00:00Z`,
-      trending: index % 5 === 3 ? undefined : [78, 64, 91, 58, 82][index % 5],
-      featured: true,
-      editorsPick: index % 5 === 0,
-      body: `## ${cleanTitle}\n\n${summary}\n\nProgress often starts with a simple question: what would this place look like if we put people first? For the communities at the heart of this story, that question has become a daily practice.\n\n> Change is built in the ordinary moments, by people who choose to show up.\n\nThis is a **demonstration editorial**, created for The Daily Standard template. The people and reporting described here are illustrative.\n\n### A wider perspective\n\n- Listen to the people closest to the issue.\n- Make room for different experiences.\n- Think about what the next generation will inherit.\n\nExplore more perspectives at [UN News](https://news.un.org/), or [return to the front page](/).`,
-    };
-  },
-);
-export const mockBanners: Banner[] = [
-  {
-    id: "edition",
-    label: "The morning edition",
-    text: "Independent minds. A shared world.",
-    href: "#latest",
-  },
-];
+const images:Record<string,string>={informacao:"/images/mental-information-photo.png",atendimento:"/images/mental-care-photo.png",rotinas:"/images/mental-routine-photo.png",convivencia:"/images/mental-community-photo.png",trabalho:"/images/mental-work.svg"};
+const disclaimer="Este conteúdo é informativo e não substitui atendimento profissional. Em emergência, ligue 192 (SAMU). Apoio emocional 24h: CVV 188.";
+export const mockArticles:Article[]=specs.map((g,index)=>{const category=siteConfig.categories.find(c=>c.id===g.section)!;return {id:`guide-${index+1}`,slug:g.slug,title:g.title,category,subtopic:g.subtopic,summary:g.summary,body:`## ${g.title}\n\n${g.intro}\n\n### ${g.heading}\n\n${g.points.map(p=>`- ${p}`).join("\n")}\n\n### Para seguir com cuidado\n\n${g.closing}\n\n${disclaimer}`,image:images[g.section],imageAlt:`Composição abstrata e serena para a seção ${category.name}`,author:"Equipe editorial",location:"Brasil",publishedAt:new Date(Date.UTC(2026,10,18-Math.floor(index/2))).toISOString(),readingMinutes:index%3===0?3:2,trending:index%4===0?70+index:undefined,featured:index%4===0,editorsPick:index%4===1};});
+export const mockBanners:Banner[]=[{id:"sources",label:"Fontes",text:"Critérios, referências e transparência editorial.",href:"/sobre#fontes"}];
+

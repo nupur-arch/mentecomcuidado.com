@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 import Link from "next/link";
 import {
   motion,
@@ -48,7 +48,7 @@ function Pick({
       >
         <div className="pick-copy">
           <span className="eyebrow">
-            THE EDITOR’S PICK <span>/{String(index + 1).padStart(2, "0")}</span>
+            ESCOLHA DA EDIÇÃO <span>/{String(index + 1).padStart(2, "0")}</span>
           </span>
           <span className="pick-category eyebrow">
             {article.category.name} / {article.location}
@@ -62,9 +62,9 @@ function Pick({
               {formatDate(article.publishedAt)}
             </span>
             <Link
-              href={`/articles/${article.slug}`}
+              href={`/artigos/${article.slug}`}
               className="pick-read"
-              aria-label={`Read editor’s pick: ${article.title.replace(/\n/g, " ")}`}
+              aria-label={`Ler escolha da edição: ${article.title.replace(/\n/g, " ")}`}
             >
               <ArrowUpRight size={25} />
             </Link>
@@ -103,7 +103,7 @@ export function EditorsPicks({ articles }: { articles: Article[] }) {
         number="02"
         label="Selected by the editors"
         title="Good stories deserve a little more time."
-        note="Pause here. There’s more to the story."
+        note="Uma pausa para ler com calma."
       />
       {picks.length ? (
         <div className="pick-deck" ref={ref}>
@@ -125,3 +125,5 @@ export function EditorsPicks({ articles }: { articles: Article[] }) {
     </section>
   );
 }
+
+

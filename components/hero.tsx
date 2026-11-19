@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 import Link from "next/link";
 import {
   AnimatePresence,
@@ -19,6 +19,7 @@ import {
   Play,
   Sparkles,
   Trophy,
+  Heart,
 } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
 import type { Article, Category } from "@/lib/types";
@@ -29,6 +30,7 @@ const icons = {
   culture: Landmark,
   science: Sparkles,
   sports: Trophy,
+  wellbeing: Heart,
 };
 function CategoryDot({
   category,
@@ -183,9 +185,9 @@ export function Hero({
   if (!active)
     return (
       <section className="state-page">
-        <span className="eyebrow">A moment between editions</span>
-        <h1>The next story is on its way.</h1>
-        <p>Check back soon for a fresh perspective.</p>
+        <span className="eyebrow">Uma pausa para cuidar</span>
+        <h1>Um novo conteúdo está a caminho.</h1>
+        <p>Volte em breve para encontrar novas orientações.</p>
       </section>
     );
   const nextArticle = (direction: number) => {
@@ -206,7 +208,7 @@ export function Hero({
     <section
       ref={heroRef}
       className="hero"
-      aria-label="Featured news"
+      aria-label="Conteúdos em destaque"
       aria-roledescription="carousel"
       onMouseEnter={() => setHovered(true)}
       onMouseLeave={() => setHovered(false)}
@@ -240,23 +242,23 @@ export function Hero({
       <div className="hero-top">
         <button
           className="round-button"
-          aria-label="Previous story"
+          aria-label="Conteúdo anterior"
           onClick={() => nextArticle(-1)}
         >
           <ArrowLeft size={17} />
         </button>
         <div className="quick-links">
           <a href="#latest">
-            The latest <ArrowUpRight size={12} />
+            Mais recentes <ArrowUpRight size={12} />
           </a>
           <span />
           <a href="#perspectives">
-            Our perspective <ArrowUpRight size={12} />
+            Nosso cuidado <ArrowUpRight size={12} />
           </a>
         </div>
         <button
           className="round-button"
-          aria-label="Next story"
+          aria-label="Próximo conteúdo"
           onClick={() => nextArticle(1)}
         >
           <ArrowRight size={17} />
@@ -306,7 +308,7 @@ export function Hero({
                 {active.trending}
                 <span>%</span>
               </strong>
-              <small>TRENDING NOW</small>
+              <small>EM DESTAQUE</small>
             </div>
           </div>
         )}
@@ -324,7 +326,7 @@ export function Hero({
               {active.category.name}
               <span className="chip-divider" />
               {active.category.number}
-              <span className="chip-context"> / THE BIG PICTURE</span>
+              <span className="chip-context"> / GUIA ESSENCIAL</span>
             </span>
             <h1>
               {active.title.split("\n").map((line, index) => (
@@ -351,8 +353,8 @@ export function Hero({
               {active.author}
             </p>
             <p className="hero-summary">{active.summary}</p>
-            <Link className="read-button" href={`/articles/${active.slug}`}>
-              Read the story
+            <Link className="read-button" href={`/artigos/${active.slug}`}>
+              Ler o conteúdo
               <ArrowUpRight size={18} />
             </Link>
           </motion.div>
@@ -361,7 +363,7 @@ export function Hero({
       <div
         ref={cardsRef}
         className="hero-cards"
-        aria-label="Stories by category"
+        aria-label="Conteúdos por seção"
       >
         {groups.map((group, index) => (
           <motion.div
@@ -431,8 +433,8 @@ export function Hero({
                 </button>
                 <Link
                   className="card-read"
-                  href={`/articles/${article.slug}`}
-                  aria-label={`Read ${article.title.replace(/\n/g, " ")}`}
+                  href={`/artigos/${article.slug}`}
+                  aria-label={`Ler ${article.title.replace(/\n/g, " ")}`}
                 >
                   <ArrowUpRight size={15} />
                 </Link>
@@ -476,7 +478,7 @@ export function Hero({
         </div>
         <span className="editors-chip">
           <span className="editors-star">✳</span>
-          {active.editorsPick ? "The editor’s pick" : "Worth your attention"}
+          {active.editorsPick ? "Escolha da edição" : "Vale sua atenção"}
         </span>
       </div>
       <span className="hero-edition">NO. 017 / A WIDER VIEW</span>
@@ -499,3 +501,7 @@ export function EditionIntro() {
     </div>
   );
 }
+
+
+
+

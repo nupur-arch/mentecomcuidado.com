@@ -1,4 +1,4 @@
-import { Header } from "@/components/header";
+﻿import { Header } from "@/components/header";
 import { Hero, EditionIntro } from "@/components/hero";
 import { BreakingTicker } from "@/components/breaking-ticker";
 import { LatestNews } from "@/components/latest-news";
@@ -6,6 +6,7 @@ import { EditorsPicks } from "@/components/editors-picks";
 import { CategoryStrips } from "@/components/category-strips";
 import { NumbersBand } from "@/components/numbers-band";
 import { Newsletter } from "@/components/newsletter";
+import { NewsFeed } from "@/components/news-feed";
 import { SiteFooter } from "@/components/site-footer";
 import { siteConfig } from "@/content/site.config";
 import { getArticles, getBanners } from "@/services/news";
@@ -36,6 +37,7 @@ export default async function Home() {
           categories={siteConfig.categories}
           banners={banners}
         />
+        <NewsFeed />
         <Newsletter
           demo={process.env.NEXT_PUBLIC_USE_MOCK === "true"}
           number={String(siteConfig.categories.length + 4).padStart(2, "0")}
@@ -45,3 +47,4 @@ export default async function Home() {
     </>
   );
 }
+

@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 import { motion, useMotionValueEvent, useScroll } from "framer-motion";
 import { useState } from "react";
 export function ArticleProgress() {
@@ -20,3 +20,4 @@ export function ArticleProgress() {
     </div>
   );
 }
+

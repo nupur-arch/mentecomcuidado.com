@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 import { AnimatePresence, motion } from "framer-motion";
 import { usePathname } from "next/navigation";
 import { useMotionPreference } from "./motion-preference";
@@ -24,3 +24,4 @@ export function RouteTransitions({ children }: { children: React.ReactNode }) {
     </AnimatePresence>
   );
 }
+
